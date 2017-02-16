@@ -1,0 +1,32 @@
+
+
+<p id="notice"><%= notice %></p>
+
+
+<h1 class="text-center">Cocktail List</h1>
+
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th colspan="3">Other Options</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @cocktails.each do |cocktail| %>
+          <tr>
+            <td scope="row"><%= cocktail.name %></td>
+            <td><%= link_to 'Show', cocktail_path(cocktail) %></td>
+            <td><%= link_to 'Add Ingredient', new_cocktail_dose_path(cocktail) %></td>
+            <td><%= link_to 'Destroy', cocktails_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+    <button><%= link_to 'Add New cocktail', new_cocktail_path %></button>
+
+
